@@ -5,7 +5,7 @@
 2. In this application we have designed two pages one for Customer booking and another page is to view the list of bookings made. 
 3. We have used Atlas Mongo as a Database to store the list of bookings. 
 4. For frontend we have used react. 
-5. We are running fromtend application on Nginx server and backend on Gunicorn.
+5. We are running frontend application on Nginx server and backend on Gunicorn.
 6. The whole application is deployed on AWS using Terraform Provisioning.
 
 # How to Run

@@ -99,7 +99,7 @@ def ssm():
 # Tweets
 ################################################
 
-# endpoint to create new tweet
+# endpoint to create new booking
 @app.route("/book", methods=["POST"])
 def add_booking():
     user = request.json['user']
@@ -132,6 +132,7 @@ def get_bookings2():
 
 @app.route("/bookings-results", methods=["GET"])
 def get_booking_results():
+    applyCollectionLevelUpdates()
     return json.dumps({"results":
                        sorted(
                            bookings.values(),
@@ -160,10 +161,7 @@ def applyCollectionLevelUpdates():
         howmany = len(records)
         print('found ' + str(howmany) + ' bookings!')
         sorted_records = sorted(records, key=lambda t: t['source'])
-        # return json.dumps({"results": sorted_records })
-        # for tweet in sorted_records:
-        #     print(tweet)
-        # tweets = sorted_records
+        
         for book in sorted_records:
             bookings[book['_id']] = book
 
@@ -179,9 +177,7 @@ def home():
         From collection:<br/>
         http://localhost:5000/bookings<br />
         http://localhost:5000/bookings-results<br /
-        Create new data:<br />
-        http://localhost:5000/mock-tweets<br />
-        Optionally, to purge database: http://localhost:5000/purge-db"""
+        """
 
 
 # add new tweet, for testing
